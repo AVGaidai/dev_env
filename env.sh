@@ -7,6 +7,9 @@ sudo dnf -y install pkgconfig
 sudo dnf -y install valgrind 
 sudo dnf -y install binutils     #gprof
 sudo dnf -y install make     
+sudo dnf -y install automake     
+sudo dnf -y install autoconf
+sudo dnf -y install libtool
 sudo dnf -y install doxygen  
 sudo dnf -y install vim      
 sudo dnf -y install emacs    
