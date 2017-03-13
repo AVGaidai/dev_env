@@ -13,4 +13,4 @@ sudo dnf -y install libtool
 sudo dnf -y install doxygen  
 sudo dnf -y install vim      
 sudo dnf -y install emacs    
-
+sudo dnf -y install gitk
