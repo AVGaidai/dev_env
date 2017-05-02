@@ -17,6 +17,14 @@ sudo dnf -y install vim
 
 # emacs -- GNU project Emacs
 sudo dnf -y install emacs
+
+# Bind key "C-x ;" -- comment line
+grep "comment-line" ~/.emacs
+status=$?
+if [ $status -eq 1 ] ; then
+    echo -e "\n(global-set-key (kbd \"C-x ;\") 'comment-line)" >> ~/.emacs
+fi
+
 grep "load-theme" ~/.emacs
 status=$?
 if [ $status -eq 1 ] ; then
