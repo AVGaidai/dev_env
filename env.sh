@@ -14,6 +14,7 @@ sudo dnf -y install autoconf
 sudo dnf -y install libtool
 sudo dnf -y install doxygen  
 sudo dnf -y install vim      
+sudo dnf -y install mc
 
 # emacs -- GNU project Emacs
 sudo dnf -y install emacs
