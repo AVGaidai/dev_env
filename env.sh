@@ -20,9 +20,7 @@ sudo dnf -y install mc
 sudo dnf -y install emacs
 
 # initialization Emacs
-find ~/ -name ".emacs"
-status=$?
-if [ $status -eq 1 ] ; then
+if ! [ -f ~/.emacs ] ; then
     echo -e "\n(package-initialize)
              \n(custom-set-variables
              \n'(package-selected-packages (quote (caps-lock))))
