@@ -22,9 +22,9 @@ sudo dnf -y install emacs
 # initialization Emacs
 if ! [ -f ~/.emacs ] ; then
     echo -e "\n(package-initialize)
-             \n(custom-set-variables
-             \n'(package-selected-packages (quote (caps-lock))))
-             \n(custom-set-faces)" > ~/.emacs
+             (custom-set-variables
+             '(package-selected-packages (quote (caps-lock))))
+             (custom-set-faces)" > ~/.emacs
     echo "Created initializer for Emacs ~/.emacs"
 fi
 
@@ -51,7 +51,7 @@ fi
 
 grep "column-number-mode" ~/.emacs
 status=$?
-if [ $status -eq 1] ; then
+if [ $status -eq 1 ] ; then
     echo -e "\n(setq column-number-mode t)" >> ~/.emacs # display column number
     echo "Add column-number-mode true for Emacs"
 fi
@@ -75,9 +75,9 @@ grep "whitespace-line-column" ~/.emacs
 status=$?
 if [ $status -eq 1 ] ; then
     echo -e "\n(require 'whitespace)
-             \n(setq whitespace-line-column 80)
-             \n(setq whitespace-style '(face lines-tail))
-             \n(add-hook 'prog-mode-hook 'whitespace-mode)" >> ~/.emacs
+             (setq whitespace-line-column 80)
+             (setq whitespace-style '(face lines-tail))
+             (add-hook 'prog-mode-hook 'whitespace-mode)" >> ~/.emacs
     echo "Add whitespace-line-column foe Emacs"
 fi
 
