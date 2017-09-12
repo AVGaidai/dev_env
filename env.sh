@@ -29,15 +29,47 @@ fi
 grep "load-theme" ~/.emacs
 status=$?
 if [ $status -eq 1 ] ; then
-    echo -e "\n(load-theme 'wheatgrass)" >> ~/.emacs   # color theme
+    echo -e "\n(load-theme 'wheatgrass)" >> ~/.emacs # color theme
     echo "Add load-theme 'wheatgrass' for Emacs"
 fi
 
 grep "alias emacs" ~/.bashrc
 status=$?
 if [ $status -eq 1 ] ; then
-    echo -e "\nalias emacs='emacs -nw'" >> ~/.bashrc   # -nw=no-window (text mode) 
+    echo -e "\nalias emacs='emacs -nw'" >> ~/.bashrc # -nw=no-window (text mode) 
     echo "Add alias for emacs: emacs -nw"
+fi
+
+grep "column-number-mode" ~/.emacs
+status=$?
+if [ $status -eq 1] ; then
+    echo -e "\n(setq column-number-mode t)" >> ~/.emacs # display column number
+    echo "Add column-number-mode true for Emacs"
+fi
+
+grep "c-default-style" ~/.emacs
+status=$?
+if [ $status -eq 1 ] ; then
+    echo -e "\n(setq c-default-style \"cc-mode\")" >> ~/.emacs # default C style
+    echo "Add c-default-style \"cc-mode\""
+fi
+
+grep "indent-tabs-mode" ~/.emacs
+status=$?
+if [ $status -eq 1 ] ; then
+    echo -e "\n(setq-default indent-tabs-mode nil)" >> ~/.emacs # no tabs
+    echo "Add indent-tabs-mode nil"
+fi
+
+# Max length of line (80 characters)
+grep "whitespace-line-column" ~/.emacs
+status=$?
+if [ $status -eq 1 ] ; then
+    echo -e "\n(require 'whitespace)
+             \n(setq whitespace-line-column 80)
+             \n(setq whitespace-style '(face lines-tail))
+             \n(add-hook 'prog-mode-hook 'whitespace-mode)" >> ~/.emacs
+    echo "Add whitespace-line-column foe Emacs"
 fi
 
 # gitk -- The git repository browser
