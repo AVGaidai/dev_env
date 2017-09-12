@@ -19,6 +19,17 @@ sudo dnf -y install mc
 # emacs -- GNU project Emacs
 sudo dnf -y install emacs
 
+# initialization Emacs
+find ~/ -name ".emacs"
+status=$?
+if [ $status -eq 1 ] ; then
+    echo -e "\n(package-initialize)
+             \n(custom-set-variables
+             \n'(package-selected-packages (quote (caps-lock))))
+             \n(custom-set-faces)" > ~/.emacs
+    echo "Created initializer for Emacs ~/.emacs"
+fi
+
 # Bind key "C-x ;" -- comment line
 grep "comment-line" ~/.emacs
 status=$?
