@@ -74,6 +74,20 @@ if [ $status -eq 1 ] ; then
     echo "Add whitespace-line-column foe Emacs"
 fi
 
+grep "global-set-key (kbd \"C-?\")" ~/.emacs
+status=$?
+if [ $status -eq 1 ] ; then
+    echo -e "\n(global-set-key (kbd \"C-?\") 'help-command)" >> ~/.emacs
+    echo "set key C-? to help-command"
+fi
+
+grep "global-set-key (kbd \"C-h\")" ~/.emacs
+status=$?
+if [ $status -eq 1 ] ; then
+    echo -e "\n(global-set-key (kbd \"C-h\") 'delete-backward-char)" >> ~/.emacs
+    echo "set key C-h to delete-backward-char"
+fi
+
 # gitk -- The git repository browser
 sudo dnf -y install gitk
 
