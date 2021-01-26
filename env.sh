@@ -16,10 +16,10 @@ sudo dnf -y install doxygen
 sudo dnf -y install vim      
 sudo dnf -y install mc
 
-# emacs -- GNU project Emacs
+# Emacs -- GNU project Emacs
 sudo dnf -y install emacs
 
-# initialization Emacs
+# Initialization Emacs
 if ! [ -f ~/.emacs ] ; then
     echo -e "\n(package-initialize)
              (custom-set-variables
