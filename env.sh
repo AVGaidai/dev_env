@@ -1,23 +1,44 @@
-# Update system
-sudo dnf -y update
+OS=$(cat /etc/os-release | grep -woi "NAME=\"[^\"]*")
+OS=$(echo ${OS#*\"})
 
-sudo dnf -y install gcc     
-sudo dnf -y install gcc-c++  
-sudo dnf -y install clang    
-sudo dnf -y install gdb      
-sudo dnf -y install pkgconfig      
-sudo dnf -y install valgrind 
-sudo dnf -y install binutils     #gprof
-sudo dnf -y install make     
-sudo dnf -y install automake     
-sudo dnf -y install autoconf
-sudo dnf -y install libtool
-sudo dnf -y install doxygen  
-sudo dnf -y install vim      
-sudo dnf -y install mc
+
+case "$OS" in
+
+    "CentOS Linux" | "centos linux" | "CENTOS LINUX" )
+    
+	PM="yum"
+    
+    ;;
+    
+    *)
+    
+	echo "Unknown Operation System!"
+	exit 0
+    ;;
+esac
+
+
+
+# Update system
+sudo $PM -y update
+
+sudo $PM -y install gcc     
+sudo $PM -y install gcc-c++  
+sudo $PM -y install clang    
+sudo $PM -y install gdb      
+sudo $PM -y install pkgconfig      
+sudo $PM -y install valgrind 
+sudo $PM -y install binutils     #gprof
+sudo $PM -y install make     
+sudo $PM -y install automake     
+sudo $PM -y install autoconf
+sudo $PM -y install libtool
+sudo $PM -y install doxygen  
+sudo $PM -y install vim      
+sudo $PM -y install mc
 
 # Emacs -- GNU project Emacs
-sudo dnf -y install emacs
+sudo $PM -y install emacs
 
 # Initialization Emacs
 if ! [ -f ~/.emacs ] ; then
@@ -89,7 +110,7 @@ if [ $status -eq 1 ] ; then
 fi
 
 # gitk -- The git repository browser
-sudo dnf -y install gitk
+sudo $PM -y install gitk
 
 
 
