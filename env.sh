@@ -1,6 +1,5 @@
-OS=$(cat /etc/os-release | grep -woi "NAME=\"[^\"]*")
-OS=$(echo ${OS#*\"})
-
+OS=$(cat /etc/os-release | grep -woi "NAME=[A-Za-z0-9\-_]*")
+OS=$(echo ${OS#NAME=*})
 
 case "$OS" in
 
@@ -8,6 +7,11 @@ case "$OS" in
     
 	PM="yum"
     
+    ;;
+    
+    "Fedora" | "FEDORA" | "fedora" )
+    
+	PM="dnf"
     ;;
     
     *)
